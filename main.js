@@ -6,7 +6,10 @@ const curtoBt = document.querySelector('.app__card-button--curto');
 const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const tituloContexto = document.querySelector('.app__title');
-const botoes =document.querySelectorAll('.app__card-button');
+const botoes = document.querySelectorAll('.app__card-button');
+const Começar = document.getElementById('start-pause');
+
+let tempoDecorrido = 5;
 
 
 //eventos 
@@ -23,9 +26,16 @@ longBt.addEventListener('click',()=>{
     longBt.classList.add('active')
 });
 
+
 tituloContexto.setAttribute('class', )
 
 //funçoes
+const contagemRegressiva= ()=>{
+    tempoDecorrido -=1;
+    console.log('temporizador:'+ tempoDecorrido)
+}
+
+
 function alterarContexto(contexto){
     //remover a classe active dos botes (foco,descanso..)
     botoes.forEach(function(contexto){
