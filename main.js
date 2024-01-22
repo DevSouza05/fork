@@ -13,7 +13,8 @@ musica.loop=true;
 
 musicaFocoInput.addEventListener('change', () =>{
 if(musica.paused){
-    musica.play(); //espere um pouqinho q vai começar a musica kk
+    musica.play();
+    musica.currentTime = 10; 
 }else {
     musica.pause();
 }
