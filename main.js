@@ -27,6 +27,7 @@ tituloContexto.setAttribute('class', )
 
 //funçoes
 function alterarContexto(contexto){
+    //remover a classe active dos botes (foco,descanso..)
     botoes.forEach(function(contexto){
         {
             contexto.classList.remove('active');
