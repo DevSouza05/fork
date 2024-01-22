@@ -6,39 +6,34 @@ const curtoBt = document.querySelector('.app__card-button--curto');
 const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const tituloContexto = document.querySelector('.app__title');
-
-// const imagem = document.getElementById('minhaImagem');
-// imagem.removeAttribute('src');
-
-// const paragrafo = document.getElementById('Meuparagrafo');
-// paragrafo.setAttribute('id', 'paragrafoModificado');
-// paragrafo.setAttribute('data-novo-atributo', 'novo valor');
-
-// const elemento = document.getElementById('timer');
-// const elementoDoAtributo= elemento.getAttribute('data-info');
-// console.log(elementoDoAtributo) 
-
-// const link = document.querySelector('.app__image');
-// const temSrc=link.hasAttribute('src');
-// console.log(temSrc)
+const botoes =document.querySelectorAll('.app__card-button');
 
 
 //eventos 
 focoBt.addEventListener('click',()=>{
-    alterarContexto('foco')
+    alterarContexto('foco');
+    focoBt.classList.add('active')
 });
 curtoBt.addEventListener('click', ()=>{
-    alterarContexto('descanso-curto')
+    alterarContexto('descanso-curto');
+    curtoBt.classList.add('active')   
 });
 longBt.addEventListener('click',()=>{
     alterarContexto('descanso-longo');
+    longBt.classList.add('active')
 });
 
 tituloContexto.setAttribute('class', )
 
 //funçoes
 function alterarContexto(contexto){
-    //imagens e cores da imagens
+    botoes.forEach(function(contexto){
+        {
+            contexto.classList.remove('active');
+        };
+    })
+
+    //imagens e cores de fundo de acordo c as imagens
     html.setAttribute('data-contexto', contexto)
     banner.setAttribute('src', `/imagens/${contexto}.png`);
     //Alterando Texto
@@ -59,7 +54,6 @@ function alterarContexto(contexto){
             default:
             break;
     }
-
 }
 
 
