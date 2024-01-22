@@ -15,6 +15,12 @@ musicaFocoInput.addEventListener('change', () =>{
 if(musica.paused){
     musica.play();
     musica.currentTime = 10; 
+
+    //musica.pause(); Pausa a reprodução
+    // musica.currentTime = 10;  Move para 10 segundos no áudio
+    // musica.volume = 0.5;Define o volume para metade (50%)
+    // musica.play(); Inicia a reprodução
+
 }else {
     musica.pause();
 }
