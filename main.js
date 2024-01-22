@@ -5,6 +5,7 @@ const focoBt = document.querySelector('.app__card-button--foco');
 const curtoBt = document.querySelector('.app__card-button--curto');
 const longBt = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
+const tituloContexto = document.querySelector('.app__title');
 
 // const imagem = document.getElementById('minhaImagem');
 // imagem.removeAttribute('src');
@@ -21,17 +22,45 @@ const banner = document.querySelector('.app__image');
 // const temSrc=link.hasAttribute('src');
 // console.log(temSrc)
 
-//imagens e cores da imagens
+
+//eventos 
 focoBt.addEventListener('click',()=>{
-    html.setAttribute('data-contexto', 'foco'),// "foco" e as demais. voce encontra no css
-    banner.setAttribute('src', '/imagens/foco.png')
+    alterarContexto('foco')
 });
 curtoBt.addEventListener('click', ()=>{
-    html.setAttribute('data-contexto', 'descanso-curto'),
-    banner.setAttribute('src', '/imagens/descanso-curto.png')
+    alterarContexto('descanso-curto')
 });
 longBt.addEventListener('click',()=>{
-    html.setAttribute('data-contexto', 'descanso-longo')
-    banner.setAttribute('src', '/imagens/descanso-longo.png')
+    alterarContexto('descanso-longo');
 });
+
+tituloContexto.setAttribute('class', )
+
+//funçoes
+function alterarContexto(contexto){
+    //imagens e cores da imagens
+    html.setAttribute('data-contexto', contexto)
+    banner.setAttribute('src', `/imagens/${contexto}.png`);
+    //Alterando Texto
+    switch(contexto){
+        case "foco":
+            tituloContexto.innerHTML = `  Otimize sua produtividade,<br>
+            <strong class="app__title-strong">mergulhe no que importa.</strong>`
+            
+            break
+        case "descanso-curto":
+            tituloContexto.innerHTML = `
+            Que tal dar uma respirada?<strong class="app__title-strong">Faça uma pausa rapida</strong>`
+
+            break
+        case "descanso-longo":
+            tituloContexto.innerHTML = `Hora de voltar a superficie  <strong class="app__title-strong">Faça uma pausa longa</strong>`
+
+            default:
+            break;
+    }
+
+}
+
+
 
