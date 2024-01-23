@@ -9,16 +9,22 @@ const tituloContexto= document.querySelector('.app__title');
 const botoes= document.querySelectorAll('.app__card-button');
 const musicaFocoInput= document.getElementById('alternar-musica');
 const startPauseBtn = document.getElementById('start-pause');
-const musica= new Audio('/sons/luna-rise-part-one.mp3') //readFile()
-musica.loop=true;
 
-let tempoDecorrido=5;
+//sons
+const musicaLuna= new Audio('/sons/luna-rise-part-one.mp3'); //readFile() também é uma forma de instanciar o audio
+const musicaPlay= new Audio('/sons/play.wav');
+const musicaPause= new Audio('/sons/pause.mp3');
+const musicaBeep= new Audio('sons/beep.mp3');
+
+musicaLuna.loop=true;
+
+let tempoCorrido=5;
 let intervaloId = null;
 
 musicaFocoInput.addEventListener('change', () =>{
-if(musica.paused){
-    musica.play();
-    musica.currentTime = 10; 
+if(musicaLuna.paused){
+    musicaLuna.play();
+    musicaLuna.currentTime = 10; 
 
     //usamos change quando trata-se de audio
     //musica.pause(); Pausa a reprodução
@@ -27,7 +33,7 @@ if(musica.paused){
     // musica.play(); Inicia a reprodução
 
 }else {
-    musica.pause();
+    musicaLuna.pause();
 }
 })
 
@@ -44,7 +50,6 @@ longBt.addEventListener('click',()=>{
     alterarContexto('descanso-longo');
     longBt.classList.add('active')
 });
-
 
 // tituloContexto.setAttribute('class', )
 
@@ -81,18 +86,28 @@ function alterarContexto(contexto){
 
 //temporizador
 const contagemRegressiva =()=>{
-    if(tempoDecorrido <=0){
-        Zerar()
+    if(tempoCorrido == 0){
+        musicaBeep.play()
         alert("tempo finalizado");
+        Zerar()
         return
     }
-    tempoDecorrido -=1;
-    console.log('temporizador'+ tempoDecorrido);
+    tempoCorrido -=1;
+    console.log(`temporizador: ${tempoCorrido}`);
+    console.log(`id: ${intervaloId}`);
 }
-startPauseBtn.addEventListener('click',Iniciar)
+startPauseBtn.addEventListener('click',Iniciar);
 
-function Iniciar(){
-    intervaloId = setInterval(contagemRegressiva,1000)
+
+function Iniciar(){ 
+    intervaloId = setInterval(contagemRegressiva,1000);
+    musicaPlay.play();
+
+    if(intervaloId){
+        musicaPause.play();
+        Zerar();
+        return
+    }
 }
 
 function Zerar (){
@@ -100,3 +115,13 @@ function Zerar (){
     intervaloId =null
 }
 
+// let figu = document.querySelector('figure');
+// let ParentFigure = figu.parentNode;
+// console.log(ParentFigure.classList);
+
+
+// const container = document.getElementById('container');
+// const childNodes = container.childNodes;
+// console.log(childNodes.length); // Saída: 1 (o nó de texto "\n  " é considerado um nó filho)
+// console.log(childNodes[0].nodeName); // Saída: "#text"
+// console.log(childNodes[1].nodeName); // Saída: "P"
