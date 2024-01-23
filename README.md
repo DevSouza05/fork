@@ -3,6 +3,7 @@ my first commit
 
 project under construction
 
+//estudo feito durante o processo
 
 // const imagem = document.getElementById('minhaImagem');
 // imagem.removeAttribute('src');
@@ -18,5 +19,10 @@ project under construction
 // const link = document.querySelector('.app__image');
 // const temSrc=link.hasAttribute('src');
 // console.log(temSrc)
+
+//uso do parentNode
+//uso do childNode
+//uso do nextElementString
+//previousElementSibling
 
 
