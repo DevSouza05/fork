@@ -9,6 +9,7 @@ const tituloContexto= document.querySelector('.app__title');
 const botoes= document.querySelectorAll('.app__card-button');
 const musicaFocoInput= document.getElementById('alternar-musica');
 const startPauseBtn = document.getElementById('start-pause');
+const IniciarOuPausarBt = document.querySelector('#start-pause span');
 
 //sons
 const musicaLuna= new Audio('/sons/luna-rise-part-one.mp3'); //readFile() também é uma forma de instanciar o audio
@@ -17,6 +18,7 @@ const musicaPause= new Audio('/sons/pause.mp3');
 const musicaBeep= new Audio('sons/beep.mp3');
 
 musicaLuna.loop=true;
+
 
 let tempoCorrido=5;
 let intervaloId = null;
@@ -87,27 +89,27 @@ function alterarContexto(contexto){
 //temporizador
 const contagemRegressiva =()=>{
     if(tempoCorrido == 0){
-        musicaBeep.play()
+        // musicaBeep.play()
         alert("tempo finalizado");
         Zerar()
         return
     }
     tempoCorrido -=1;
     console.log(`temporizador: ${tempoCorrido}`);
-    console.log(`id: ${intervaloId}`);
+
 }
 startPauseBtn.addEventListener('click',Iniciar);
 
 
-function Iniciar(){ 
-    intervaloId = setInterval(contagemRegressiva,1000);
-    musicaPlay.play();
-
+function IniciarOuPausar(){ 
+   
+    // musicaPlay.play();
     if(intervaloId){
-        musicaPause.play();
+        musicaPlay.play();
         Zerar();
         return
-    }
+    }musicaPlay.play()
+    intervaloId = setInterval(contagemRegressiva,1000);
 }
 
 function Zerar (){
