@@ -11,6 +11,7 @@ const musicaFocoInput= document.getElementById('alternar-musica');
 const musica= new Audio('/sons/luna-rise-part-one.mp3') //readFile()
 musica.loop=true;
 
+
 musicaFocoInput.addEventListener('change', () =>{
 if(musica.paused){
     musica.play();
@@ -71,6 +72,13 @@ function alterarContexto(contexto){
 
             default:
             break;
+    }
+}
+
+const contagemRegressiva = () =>{
+    if(tempoDecorridoEmSegundos){
+        tempoDecorridoEmSegundos -=1;
+        console.log(tempoDecorridoEmSegundos)
     }
 }
 
