@@ -11,7 +11,6 @@ const musicaFocoInput= document.getElementById('alternar-musica');
 const musica= new Audio('/sons/luna-rise-part-one.mp3') //readFile()
 musica.loop=true;
 
-let tempoDecorridoEmSegundos =5;
 
 musicaFocoInput.addEventListener('change', () =>{
 if(musica.paused){
