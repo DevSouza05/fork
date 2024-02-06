@@ -10,6 +10,7 @@ const botoes= document.querySelectorAll('.app__card-button');
 const musicaFocoInput= document.getElementById('alternar-musica');
 const startPauseBtn = document.getElementById('start-pause');
 const IniciarOuPausarBt = document.querySelector('#start-pause span');
+console.log(IniciarOuPausarBt)
 
 //sons
 const musicaLuna= new Audio('/sons/luna-rise-part-one.mp3'); //readFile() também é uma forma de instanciar o audio
@@ -98,7 +99,7 @@ const contagemRegressiva =()=>{
     console.log(`temporizador: ${tempoCorrido}`);
 
 }
-startPauseBtn.addEventListener('click',Iniciar);
+startPauseBtn.addEventListener('click',Iniciar());
 
 
 function IniciarOuPausar(){ 
