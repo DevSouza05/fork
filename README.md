@@ -1,4 +1,7 @@
 # fork
+
+//hosted project: visit https://devsouzafork.vercel.app/
+
 my first commit
 
 project under construction
@@ -24,5 +27,8 @@ project under construction
 //uso do childNode
 //uso do nextElementString
 //previousElementSibling
+
+
+
 
 
