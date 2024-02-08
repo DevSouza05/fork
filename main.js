@@ -54,7 +54,7 @@ longBt.addEventListener('click',()=>{
     longBt.classList.add('active')
 });
 
-// tituloContexto.setAttribute('class', )
+tituloContexto.setAttribute('class', )
 
 //funçoes
 function alterarContexto(contexto){
@@ -99,7 +99,7 @@ const contagemRegressiva =()=>{
     console.log(`temporizador: ${tempoCorrido}`);
 
 }
-startPauseBtn.addEventListener('click',Iniciar());
+startPauseBtn.addEventListener('click',IniciarOuPausar);
 
 
 function IniciarOuPausar(){ 
@@ -108,13 +108,16 @@ function IniciarOuPausar(){
     if(intervaloId){
         musicaPlay.play();
         Zerar();
+        IniciarOuPausarBt.innerText = "Começar";
         return
+
     }musicaPlay.play()
     intervaloId = setInterval(contagemRegressiva,1000);
 }
 
 function Zerar (){
     clearInterval(intervaloId) //metodo que faz com que pare 
+    IniciarOuPausarBt.innerText = "Pausar";
     intervaloId =null
 }
 
